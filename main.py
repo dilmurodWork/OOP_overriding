@@ -122,6 +122,32 @@ class Drob:
         self.z = self.z * other.z
         return self
 
+    def __truediv__(self, other):
+        self.p = self.p / other.p
+        self.z = self.z / other.z
+        return self
+
+    def __add__(self, other):
+        global p
+        if self.z == other.z:
+            self.p = self.p + other.p
+        else:
+            z = self.z * other.z
+            p = self.p * other.z + other.p * self.z
+
+        return Drob(p, z)
+
+    def __sub__(self, other):
+        global p
+        if self.z == other.z:
+            self.p = self.p - other.p
+        else:
+            z = self.z * other.z
+            p = self.p * other.z - other.p * self.z
+
+        return Drob(p, z)
+
 
 d = Drob(7, 8)
-print(d)
+f = Drob(3, 5)
+print(d - f)
