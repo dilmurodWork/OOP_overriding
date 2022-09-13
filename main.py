@@ -109,45 +109,93 @@
 #
 # r = a-b
 # print(r.number)
-class Drob:
-    def __init__(self, p, z):
-        self.p = p
-        self.z = z
+# class Drob:
+#     def __init__(self, p, z):
+#         self.p = p
+#         self.z = z
+#
+#     def __str__(self):
+#         return '{}/{}'.format(self.p, self.z)
+#
+#     def __mul__(self, other):
+#         self.p = self.p * other.p
+#         self.z = self.z * other.z
+#         return self
+#
+#     def __truediv__(self, other):
+#         self.p = self.p / other.p
+#         self.z = self.z / other.z
+#         return self
+#
+#     def __add__(self, other):
+#         global p
+#         if self.z == other.z:
+#             self.p = self.p + other.p
+#         else:
+#             z = self.z * other.z
+#             p = self.p * other.z + other.p * self.z
+#
+#         return Drob(p, z)
+#
+#     def __sub__(self, other):
+#         global p
+#         if self.z == other.z:
+#             self.p = self.p - other.p
+#         else:
+#             z = self.z * other.z
+#             p = self.p * other.z - other.p * self.z
+#
+#         return Drob(p, z)
+#
+#
+# d = Drob(7, 8)
+# f = Drob(3, 5)
+# print(d - f)
+class Library:
+    def __init__(self, name, adress='Amir Temur main street 1 ', kol=20):
+        self.name = name
+        self.adress = adress
+        self.kol = kol
 
     def __str__(self):
-        return '{}/{}'.format(self.p, self.z)
+        return f'books : {self.name}\nCount: {self.kol}\nAdress: {self.adress}'
 
-    def __mul__(self, other):
-        self.p = self.p * other.p
-        self.z = self.z * other.z
+    def __iadd__(self, other):
+        self.name += ' & ' + other.name
+        self.kol += other.kol
         return self
 
-    def __truediv__(self, other):
-        self.p = self.p / other.p
-        self.z = self.z / other.z
+    def __isub__(self, other):
+        self.name += ' & ' + other.name
+        self.kol -= other.kol
         return self
 
-    def __add__(self, other):
-        global p
-        if self.z == other.z:
-            self.p = self.p + other.p
-        else:
-            z = self.z * other.z
-            p = self.p * other.z + other.p * self.z
+    def __lt__(self, other):
+        return self.kol < other.kol
 
-        return Drob(p, z)
+    def __gt__(self, other):
+        return self.kol > other.kol
 
-    def __sub__(self, other):
-        global p
-        if self.z == other.z:
-            self.p = self.p - other.p
-        else:
-            z = self.z * other.z
-            p = self.p * other.z - other.p * self.z
+    def __le__(self, other):
+        return self.kol <= other.kol
 
-        return Drob(p, z)
+    def __ge__(self, other):
+        return self.kol >= other.kol
+
+    def __eq__(self, other):
+        return self.kol == other.kol
+
+    def __ne__(self, other):
+        return self.kol != other.kol
+
+    def __len__(self):
+        return self.kol
 
 
-d = Drob(7, 8)
-f = Drob(3, 5)
-print(d - f)
+f = Library('Kolkata')
+r = Library('Lakamorya', kol=33)
+
+f -= r
+print(f)
+
+print(f.__len__())
