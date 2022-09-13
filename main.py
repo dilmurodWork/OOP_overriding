@@ -50,31 +50,62 @@
 # c.weight = 45
 # print(c)
 
-class Bolb:
-    def __init__(self, name, w, v):
-        self._name = name
-        self._w = w
-        self._v = v
-
-    def get_name(self):
-        return self._name
-
-    def get_v(self):
-        return self._v
-
-    def get_w(self):
-        return self._w
-
-    def __str__(self):
-        return f'{self._name} {self._w} {self._v}'
-
-    def __add__(self, other):
-        self._name = self._name + ' & ' + other.get_name()
-        self._v = self._v * other.get_v()
-        self._w = self._w * other.get_w()
-        return self
-
-
-c = Bolb('Folp', 34, 45)
-d = Bolb('Golp', 44, 65)
-print(c+d)
+# class Bolb:
+#     def __init__(self, name, w, v):
+#         self._name = name
+#         self._w = w
+#         self._v = v
+#
+#     def get_name(self):
+#         return self._name
+#
+#     def get_v(self):
+#         return self._v
+#
+#     def get_w(self):
+#         return self._w
+#
+#     def __str__(self):
+#         return f'{self._name} {self._w} {self._v}'
+#
+#     def __add__(self, other):
+#         self._name = self._name + ' & ' + other.get_name()
+#         self._v = self._v * other.get_v()
+#         self._w = self._w * other.get_w()
+#         return self
+#
+#
+# c = Bolb('Folp', 34, 45)
+# d = Bolb('Golp', 44, 65)
+# print(c+d)
+# class Number:
+#     def __init__(self, n):
+#         self.number = n
+#
+#     def __add__(self, other):  # a + b
+#         self.number = self.number + other.number
+#         return self
+#
+#     def __truediv__(self, other):  # a / b
+#         self.number = self.number / other.number
+#         return self
+#
+#     def __mul__(self, other):  # a * b
+#         self.number = self.number * other.number
+#         return self
+#
+#     def __sub__(self, other):  # a - b
+#         try:
+#             self.number = self.number - other.number
+#         except AttributeError:
+#             self.number = self.number - other
+#         return self
+#
+#
+# a = Number(9)
+# b = Number(40)
+# c = a / b
+# print(c.number)
+#
+# r = a-b
+# print(r.number)
