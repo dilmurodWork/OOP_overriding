@@ -109,3 +109,19 @@
 #
 # r = a-b
 # print(r.number)
+class Drob:
+    def __init__(self, p, z):
+        self.p = p
+        self.z = z
+
+    def __str__(self):
+        return '{}/{}'.format(self.p, self.z)
+
+    def __mul__(self, other):
+        self.p = self.p * other.p
+        self.z = self.z * other.z
+        return self
+
+
+d = Drob(7, 8)
+print(d)
